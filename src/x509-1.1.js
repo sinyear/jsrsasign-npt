@@ -797,11 +797,11 @@ function X509(params) {
 	if (critical) result.critical = true;
 
 	if (hExtV === '3000') return result;
-	if (hExtV === '30030101ff') {
+	if (hExtV === '30030101ff' || hExtV === '3003010101' ) {
 	    result.cA = true;
 	    return result;
 	}
-	if (hExtV.substr(0, 12) === '30060101ff02') {
+	if (hExtV.substr(0, 12) === '30060101ff02' || hExtV.substr(0, 12) === '300601010102') {
 	    var pathLexHex = _getV(hExtV, 10);
 	    var pathLen = parseInt(pathLexHex, 16);
 	    result.cA = true;
